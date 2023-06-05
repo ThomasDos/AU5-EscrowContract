@@ -13,7 +13,8 @@ export default function EscrowContract({ address, arbiter, beneficiary }: any) {
       ...escrowContractConfigs,
       address,
       functionName: 'approve',
-      chain
+      chain,
+      args: []
     })
   }
 
