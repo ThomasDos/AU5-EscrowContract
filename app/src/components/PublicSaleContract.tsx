@@ -47,13 +47,13 @@ export default function PublicSaleContract({ address, description, value }: any)
     ...publicSaleContractConfigs,
     address,
     functionName: 'isSold'
-  })
+  }) as { data: boolean; refetch: () => void }
 
   const { data: owner, refetch: refetchOwner } = useContractRead({
     ...publicSaleContractConfigs,
     address,
     functionName: 'owner'
-  })
+  }) as { data: string; refetch: () => void }
 
   useContractEvent({
     ...publicSaleContractConfigs,
