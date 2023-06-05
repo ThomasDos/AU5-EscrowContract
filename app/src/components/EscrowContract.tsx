@@ -22,13 +22,13 @@ export default function EscrowContract({ address, arbiter, beneficiary }: any) {
     ...escrowContractConfigs,
     address,
     functionName: 'isApproved'
-  })
+  }) as { data: boolean; refetch: () => void }
 
   const { data: depositor } = useContractRead({
     ...escrowContractConfigs,
     address,
     functionName: 'depositor'
-  })
+  }) as { data: string }
 
   useContractEvent({
     ...escrowContractConfigs,
@@ -47,7 +47,7 @@ export default function EscrowContract({ address, arbiter, beneficiary }: any) {
   return (
     <div className='border p-4 my-4'>
       <ul>
-        <li>Depositor : {depositor as string}</li>
+        <li>Depositor : {depositor}</li>
         <li>Arbiter : {arbiter}</li>
         <li>Beneficiary : {beneficiary}</li>
         <li>Balance : {balance / 10 ** 18} eth</li>
