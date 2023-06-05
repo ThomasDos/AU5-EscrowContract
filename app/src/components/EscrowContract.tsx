@@ -8,7 +8,8 @@ export default function EscrowContract({ address, arbiter, beneficiary }: any) {
   const { chain } = useNetwork()
 
   const handleApprove = () => {
-    walletClient?.writeContract({
+    if (!walletClient) return
+    walletClient.writeContract({
       ...escrowContractConfigs,
       address,
       functionName: 'approve',

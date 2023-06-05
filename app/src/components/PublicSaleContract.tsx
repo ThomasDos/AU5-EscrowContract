@@ -9,8 +9,10 @@ export default function PublicSaleContract({ address, description, value }: any)
   const [isLoading, setIsLoading] = useState(false)
 
   const confirmTransaction = async () => {
+    if (!walletClient) return
+
     try {
-      const tx = await walletClient?.writeContract({
+      const tx = await walletClient.writeContract({
         ...publicSaleContractConfigs,
         address,
         functionName: 'buy',
@@ -24,8 +26,10 @@ export default function PublicSaleContract({ address, description, value }: any)
   }
 
   const handleItemAvailable = async () => {
+    if (!walletClient) return
+
     try {
-      const tx = await walletClient?.writeContract({
+      const tx = await walletClient.writeContract({
         ...publicSaleContractConfigs,
         address,
         functionName: 'updateIsSold',
