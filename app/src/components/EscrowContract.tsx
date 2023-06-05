@@ -2,7 +2,7 @@ import escrowContractConfigs from '@/utils/escrowContractConfigs'
 import { useState } from 'react'
 import { useContractEvent, useContractRead, useNetwork, usePublicClient, useWalletClient } from 'wagmi'
 
-export default function EscrowContract({ address, arbiter, beneficiary, value }: any) {
+export default function EscrowContract({ address, arbiter, beneficiary }: any) {
   const { data: walletClient } = useWalletClient()
   const [balance, setBalance] = useState(0)
   const { chain } = useNetwork()
