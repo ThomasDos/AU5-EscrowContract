@@ -17,7 +17,8 @@ export default function PublicSaleContract({ address, description, value }: any)
         address,
         functionName: 'buy',
         chain,
-        value
+        value,
+        args: []
       })
       setIsLoading(true)
       await waitForTransaction({ hash: tx as `0x${string}` })
